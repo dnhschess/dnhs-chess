@@ -4,7 +4,7 @@ title: Chess Club Home page
 ---
 
 
-## Build you Home Page here 
+## Welcome to Chess Club
 This is about your journey. Start now!!!
 
 ## Overview of Hacks, Study and Tangibles
