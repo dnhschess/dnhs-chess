@@ -1,12 +1,13 @@
 ---
 toc: true
 comments: false
-layout: post
+layout: none
 title: Sample Daily Plan 
 description: Example Blog!!!  This shows planning and notes from hacks.
 type: plans
 courses: { compsci: {week: 0} }
 ---
+{%- include chess_head.html -%}
 
 ### PBL Unit 1 / Week 0
 Learning outcome.  Installing Tools and showing usage of VSCode.
