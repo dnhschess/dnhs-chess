@@ -15,7 +15,7 @@ search_exclude: true
 <body>
     <header>
         <p class="center1">
-            <img src="{{ site.baseurl }}/images/homeage.png" width=750px/>
+            <img src="{{site.baseurl}}/images/homeage.png" width=750px/>
         </p>
         <h1 class="animated-title">DEL NORTE CHESS CLUB</h1>
     </header>
