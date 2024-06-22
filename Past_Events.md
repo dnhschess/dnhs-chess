@@ -1,32 +1,14 @@
 ---
-<html lang="en">
+layout: none
+search_exclude: true
+permalink: /pastevents
+---
+{%- include chess_head.html -%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEL NORTE CHESS CLUB</title>
-</head>
-
-<body>
-    <header>
-        <p class="center1">
-            <img src="{{site.baseurl}}/images/homepicture.png" width=750px/>
-        </p>
-        <h1 class="animated-title">DEL NORTE CHESS CLUB</h1>
-    </header>
-    <section id="search-section">
-        <h1 class="search-title">Participate in various events</h1>
-        <ul>Summer Camps</ul>
-        <ul>Drop-In Tournaments</ul>
-        <ul>Regional Tournaments</ul>
-        <ul>Southern California Tournaments</ul>
-        <!-- Add your job search form or any relevant content here -->
-    </section>
-    <!-- Add more sections as needed for additional content -->
-
-</body>
-
-</html>
+## Big Bughouse Brawl December 9, 2023
+<p> <img src="{{ site.baseurl }}/images/bughousebrawl1.png" width=500px/>
+<img src="{{ site.baseurl }}/images/bughousebrawl2.png" width=500px/></p>
+<p><img src="{{ site.baseurl }}/images/bigbughousebrawl1.png" width=500px/></p>
 
 <style>
     p {

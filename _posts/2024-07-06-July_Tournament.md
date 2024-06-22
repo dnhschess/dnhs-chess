@@ -1,44 +1,39 @@
 ---
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEL NORTE CHESS CLUB</title>
-</head>
-
-<body>
-    <header>
-        <p class="center1">
-            <img src="{{site.baseurl}}/images/homepicture.png" width=750px/>
-        </p>
-        <h1 class="animated-title">DEL NORTE CHESS CLUB</h1>
-    </header>
-    <section id="search-section">
-        <h1 class="search-title">Participate in various events</h1>
-        <ul>Summer Camps</ul>
-        <ul>Drop-In Tournaments</ul>
-        <ul>Regional Tournaments</ul>
-        <ul>Southern California Tournaments</ul>
-        <!-- Add your job search form or any relevant content here -->
-    </section>
-    <!-- Add more sections as needed for additional content -->
-
-</body>
-
+toc: true
+comments: false
+layout: none
+title: July 6th Tournament
+description: Participate in our July 6th Tournament. Click the link for more details
+type: plans
+---
+{%- include chess_head.html -%}
+<html>
+<h1 class="animated-title">July 6th Tournament</h1>
+<h2>Details</h2>
+<ul>Details Here</ul>
+<ul>
+<a href="url">Registration Link</a>
+</ul>
 </html>
 
 <style>
     p {
+        text-align: left;
+        background-color: #F6F6F2;
+        color: #333;
+    }
+    a {
         text-align: center;
         background-color: #F6F6F2;
         color: #333;
+        font-size: 25px;
+        font-family: Optima, sans-serif;
     }
     ul {
         text-align: center;
         background-color: #F6F6F2;
         color: #333;
-        font-size: 50px;
+        font-size: 25px;
         font-family: Optima, sans-serif;
     }
     body {
@@ -70,6 +65,7 @@
     h1.animated-title {
         font-family: Optima, sans-serif;
         color: #388087;
+        text-align: center;
         font-size: 75px;
         background-color: #F6F6F2;
         margin-top: 50px;
