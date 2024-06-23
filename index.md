@@ -1,4 +1,10 @@
 ---
+layout: none
+title: Del Norte Chess Club
+search_exclude: true
+---
+{%- include chess_head.html -%}
+
 <html lang="en">
 
 <head>
