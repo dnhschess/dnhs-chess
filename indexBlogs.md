@@ -16,13 +16,13 @@ permalink: /events
 <style>
     p {
         text-align: center;
-        background-color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
         color: #333;
     }
     
     li {
         text-align: center;
-        background-color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
         color: #2f5154;
     }
 
@@ -30,33 +30,33 @@ permalink: /events
         font-family: 'Arial', sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
         color: #333;
     }
 
     header {
-        background-color: #F6F6F2;
-        color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
+        color: #333;
         padding: 10px;
         text-align: center;
     }
 
     main {
         padding: 20px;
-        background-color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
     }
 
     section {
         text-align: center;
         margin-top: 40px;
-        background-color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
     }
 
     h1.animated-title {
         font-family: Optima, sans-serif;
         color: #388087;
         font-size: 75px;
-        background-color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
         margin-top: 50px;
         animation: bounceIn 0.5s ease-out; /* Added animation for bouncing in */
     }
@@ -65,7 +65,7 @@ permalink: /events
         font-family: Optima, sans-serif;
         color: #2f5154;
         font-size: 35px;
-        background-color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
         text-align: center;
     }
 
@@ -73,7 +73,7 @@ permalink: /events
         font-family: Optima, sans-serif;
         color: #2f5154;
         font-size: 45px;
-        background-color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
         text-align: center;
         animation: moveUp 0.5s forwards; /* Added animation for moving up */
     }
@@ -98,7 +98,7 @@ permalink: /events
     }
 
     footer {
-        background-color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
         font-family: "Times New Roman", sans-serif;
         color: #388087;
         text-align: center;
@@ -115,7 +115,7 @@ permalink: /events
         font-family: "Times New Roman", sans-serif;
         color: #388087;
         font-size: 50px;
-        background-color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
         margin-top: 10px;
         animation-duration: 1s;
         animation-fill-mode: forwards;
