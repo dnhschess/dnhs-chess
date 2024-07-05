@@ -112,26 +112,95 @@ title: Del Norte Chess Club Leaderboard
         to { opacity: 1; transform: scale(1); }
     }
 </style>
-
-/* Make leaderboard */
-
-{%- include chess_head.html -%}
-<main>
-    <section>
-        <h1 class="animated-title">Leaderboard</h1>
-        <div class="numbers">
-            <ul>
-                <li>1. Player A - 1500</li>
-                <li>2. Player B - 1400</li>
-                <li>3. Player C - 1300</li>
-                <!-- Add more players as needed -->
-            </ul>
-        </div>
-    </section>
-</main>
-<footer>
-    <p>Del Norte Chess Club - Established 2020</p>
-</footer>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #005b96;
+            color: #ffffff;
+        }
+        .leaderboard {
+            width: 50%;
+            margin: auto;
+            background-color: #0074cc;
+            border-collapse: collapse;
+        }
+        .leaderboard th, .leaderboard td {
+            border: 1px solid #ffffff;
+            padding: 10px;
+            text-align: left;
+        }
+        .leaderboard th {
+            background-color: #005b96;
+        }
+        .dropdown {
+            width: 100%;
+            background-color: #0074cc;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="leaderboard-container">
+        <select class="dropdown" onchange="showDivision(this.value)" >
+            <option value="division2" style="background-color:red">Division 2</option>
+            <option value="division1" style="background-color:red">Division 1</option>
+        </select>
+        <table class="leaderboard" id="division2">
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Points</th>
+            </tr>
+            <tr><td>1</td><td>Magnus Carlsen</td><td>30</td></tr>
+            <tr><td>2</td><td>Hikaru Nakamura</td><td>29</td></tr>
+            <tr><td>3</td><td>Levy Rozman</td><td>28</td></tr>
+            <tr><td>4</td><td>Nemo Zhou</td><td>27</td></tr>
+            <tr><td>5</td><td>Alexandra Botez</td><td>20</td></tr>
+            <tr><td>6</td><td>Ding Liren</td><td>18</td></tr>
+            <tr><td>7</td><td>Bobby Fischer</td><td>15</td></tr>
+            <tr><td>8</td><td>Hou Yi Fan</td><td>12</td></tr>
+            <tr><td>9</td><td>Andrea Botez</td><td>11</td></tr>
+            <tr><td>10</td><td>Pascal Basillion</td><td>10</td></tr>
+            <tr><td>11</td><td>Jason Gao</td><td>9</td></tr>
+            <tr><td>12</td><td>Nandan Vallamkondu</td><td>0</td></tr>
+        </table>
+        <table class="leaderboard" id="division1" style="display:none;">
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Points</th>
+            </tr>
+            <tr><td>1</td><td>Jschlatt</td><td>5</td></tr>
+            <tr><td>2</td><td>Alex Xiao</td><td>4</td></tr>
+            <tr><td>3</td><td>Lilian Wu</td><td>4</td></tr>
+            <tr><td>4</td><td>Natalie Tao</td><td>4</td></tr>
+            <tr><td>5</td><td>Jay He</td><td>4</td></tr>
+            <tr><td>6</td><td>Alexander Randolph</td><td>3</td></tr>
+            <tr><td>7</td><td>Logan Strother</td><td>3</td></tr>
+            <tr><td>8</td><td>Sarah Hekmat</td><td>3</td></tr>
+            <tr><td>9</td><td>Jadon Lee</td><td>3</td></tr>
+            <tr><td>10</td><td>Alex Zhang</td><td>3</td></tr>
+            <tr><td>11</td><td>Samarth Kalanke</td><td>3</td></tr>
+            <tr><td>12</td><td>Preston Foster</td><td>0</td></tr>
+        </table>
+    </div>
+    <script>
+        function showDivision(division) {
+            document.getElementById('division1').style.display = 'none';
+            document.getElementById('division2').style.display = 'none';
+            document.getElementById(division).style.display = 'table';
+        }
+    </script>
+</body>
+</html>
 
 <style>
     /* Paste your CSS styles here */
