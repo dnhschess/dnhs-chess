@@ -40,14 +40,14 @@ title: Del Norte Chess Club Leaderboard
     section {
         text-align: center;
         margin-top: 40px;
-        background-color: #F6F6F2;
+        background-color: ##D7B0AD;
     }
 
     h1.animated-title {
         font-family: Optima, sans-serif;
         color: #388087;
         font-size: 75px;
-        background-color: #F6F6F2;
+        background-color: ##D7B0AD;
         margin-top: 50px;
         animation: bounceIn 0.5s ease-out; /* Added animation for bouncing in */
     }
@@ -64,7 +64,7 @@ title: Del Norte Chess Club Leaderboard
         font-family: Optima, sans-serif;
         color: #2f5154;
         font-size: 45px;
-        background-color: #F6F6F2;
+        background-color: ##D7B0AD;
         text-align: center;
         animation: moveUp 0.5s forwards; /* Added animation for moving up */
     }
