@@ -1,158 +1,110 @@
 ---
 layout: none
-permalink: /Login
+permalink: /login
 title: Del Norte Chess Club Login
 ---
 {%- include chess_head.html -%}
-
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-</head>
-
-<body class="light">
-  <main id="main-holder">
-    <div id="brand-logo">
-      <img src="../images/icons/dnhs_logo.png" id="brand-logo-img" alt="Brand Logo">
+    <style>
+        body {
+            background-color: #FFFF33; /* yellow background */
+        }
+        .CONTAINER {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .CARD {
+            background-color: #f1f1f1; /* light grey background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .signInButton {
+            background-color: #FFA500; /* orange button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            width: 100%;
+        }
+        .signInButton:hover {
+            background-color: #e69500; /* darker orange on hover */
+        }
+    </style>
+<html>
+  <div class="CONTAINER">
+    <div class="CARD">
+        <h3>Login</h3>
+        <input id="signInEmailInput" class="input" placeholder="Email">
+        <input id="signInPasswordInput" class="input" placeholder="Password">
+        <button class="signInButton" onclick="login_user()">Login</button>
     </div>
-    <div id="login-div">
-      <h1 id="login-header">Sign-in</h1>
-      <!--<div id="login-subheader">If you already have an account.</div>-->
-      <form id="login-form">
-        <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Email">
-        <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
-      </form>
-      <div id="forgot-password">Forgot Password?</div>
-      <input type="submit" value="Sign In" id="login-form-submit" onclick="signIn()">
-      <div id="no-account">No account?</div>
-      <div id="create-account"><a href="{{site.baseurl}}/sign-up/" style="color: #22956b !important;">Click here to make one!</a></div>
-    </div>
-  </main>
-</body>
-
+  </div>
 </html>
-
 <script>
-  const brandLogoImg = document.getElementById('brand-logo-img');
-  window.onload = (event) => {
-      console.log("Page is fully loaded");
-      let DarkMode = localStorage.getItem('DarkMode');
-      DarkMode = (DarkMode === 'true'); // Convert to boolean
-      console.log(DarkMode);
-      if (DarkMode) {
-        document.body.classList.add('dark');
-        document.body.classList.remove('light');
-        if (brandLogoImg) {
-                  console.log("dark")
-                  brandLogoImg.src = "../images/icons/alternate_dnhs_logo.png";
-        }
-      } else {
-        document.body.classList.add('light');
-        document.body.classList.remove('dark');
-        if (brandLogoImg) {
-                  brandLogoImg.src = "../images/icons/dnhs_logo.png";
-        }
-      }
-};
-
-  // function themeChange() {
-  //           const DarkMode = JSON.parse(localStorage.getItem('DarkMode')) || false;
-  //           const newDarkMode = !DarkMode;
-  //           if (DarkMode) {
-  //               document.body.classList.add('dark');
-  //               document.body.classList.remove('light');
-                // if (brandLogoImg) {
-                //   console.log("dark")
-                //   brandLogoImg.src = "../images/icons/alternate_dnhs_logo.png";
-                // }
-  //           } else {
-  //               document.body.classList.add('light');
-  //               document.body.classList.remove('dark');
-              //  if (brandLogoImg) {
-              //     brandLogoImg.src = "../images/icons/dnhs_logo.png";
-              //   }
-  //           }
-  //           localStorage.setItem('DarkMode', JSON.stringify(newDarkMode));
-  // }
-
-  var local = "http://localhost:8085";
-  var deployed = "";
-  const currentUrl = window.location.href;
-  var fetchUrl = deployed;
-  if (currentUrl.includes("localhost") || currentUrl.includes("127.0.0.1")) {
-    fetchUrl = local;
-  }
-
-  function signIn() {
-    console.log("button clicked");
-    var email = document.getElementById('username-field').value;
-    var password = document.getElementById('password-field').value;
-
-    var requestBody = {
-        email: email,
-        password: password
-    };
-
+function login_user() {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    // STEP ONE: COLLECT USER INPUT
+    var raw = JSON.stringify({
+        "email": document.getElementById("signInEmailInput").value,
+        "password": document.getElementById("signInPasswordInput").value
+        // For quick testing
+        //"email": "toby@gmail.com",
+        //"password": "123Toby!"
+    });
+    console.log(raw);
     var requestOptions = {
         method: 'POST',
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'include', // include, *same-origin, omit
-        body: JSON.stringify(requestBody),
-        headers: {
-            "content-type": "application/json",
-        },
+        headers: myHeaders,
+        credentials: 'include',
+        body: raw,
+        redirect: 'follow'
     };
-   
-    fetch(fetchUrl + '/authenticate', requestOptions)
-    .then((response => {
-      if (!response.ok) {
-          if (response.status == "401") {
-            throw new Error("Invalid email or password")
-          }
-          else {
-            throw new Error("HTTP Error: " + response.status)
-          }
-      }
-      return response.json();
-      })) // Get response text
-      .then(data => {
-        // Check response status
-        console.log(data.message);
-        localStorage.setItem('jwtToken', data.cookie);
-        localStorage.setItem("email", email);
-        window.location.replace("{{site.baseurl}}/dashboard/");
-        return;
-      }
-    )
-    .catch(error => {
-        console.error('There was an error:', error);
-        // Error occurred during sign-in
-        displayErrorMessage(error.message);
-    });
-  }
-
-    function displayErrorMessage(message) {
-      // check if error message already exists 
-      var existingErrorMessage = document.querySelector('.error-message');
-      if (!existingErrorMessage) {
-        var errorDiv = document.createElement('div');
-        errorDiv.className = 'error-message';
-        errorDiv.textContent = message;
-        document.getElementById('login-div').appendChild(errorDiv);
-      }
-    }
-
-    /*
-    document.getElementById('login-form-submit').onclick = function () {
-      signIn();
-    }; ^ 
-    */
+    // STEP TWO: SEND REQUEST TO BACKEND AND GET JWT COOKIE
+    fetch("http://localhost:8085/authenticate", requestOptions)
+    .then(response => {
+        if (!response.ok) {
+            const errorMsg = 'Login error: ' + response.status;
+            console.log(errorMsg);
+            switch (response.status) {
+                case 401:
+                    alert("Incorrect username or password");
+                    break;
+                case 403:
+                    alert("Access forbidden. You do not have permission to access this resource.");
+                    break;
+                case 404:
+                    alert("User not found. Please check your credentials.");
+                    break;
+                // Add more cases for other status codes as needed
+                default:
+                    alert("Login failed. Please try again later.");
+            }
+            return Promise.reject('Login failed');
+        }
+        return response.text()
+    })
+    .then(result => {
+        console.log(result);
+        window.location.href = "http://127.0.0.1:4200/dnhs-chess/";
+        //window.location.href = "https://dnhschess.github.io/dnhs-chess/";
+    })
+    .catch(error => console.error('Error during login:', error));
+}
 </script>
