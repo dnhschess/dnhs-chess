@@ -102,8 +102,8 @@ function login_user() {
     })
     .then(result => {
         console.log(result);
-        window.location.href = "http://127.0.0.1:4200/dnhs-chess/";
-        //window.location.href = "https://dnhschess.github.io/dnhs-chess/";
+        //window.location.href = "http://127.0.0.1:4200/dnhs-chess/";
+        window.location.href = "https://dnhschess.github.io/dnhs-chess/";
     })
     .catch(error => console.error('Error during login:', error));
 }
