@@ -89,9 +89,10 @@ search_exclude: true
 
 <body>
     <header>
-        <img src="{{site.baseurl}}/images/homepicture.png" alt="Del Norte Chess Club" width="100%">
-        <h1 class="animate__animated animate__fadeInDown">Del Norte Chess Club!</h1>
-    </header>
+    <img src="{{site.baseurl}}/images/homepicture.png" alt="Del Norte Chess Club" width="100%" style="margin-top: -60px;">
+    <h1 class="animate__animated animate__fadeInDown">Del Norte Chess Club!</h1>
+</header>
+
 
     <div class="container">
         <section>
@@ -106,7 +107,7 @@ search_exclude: true
     </div>
 
     <footer>
-        <p>Contact us at info@delnortechessclub.com</p>
+        <p>Join the Del Norte Discord!</p>
     </footer>
 
     <!-- Optional: Include animate.css for animations -->
