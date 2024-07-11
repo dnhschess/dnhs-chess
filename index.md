@@ -90,7 +90,7 @@ search_exclude: true
 <body>
     <header>
         <img src="{{site.baseurl}}/images/homepicture.png" alt="Del Norte Chess Club" width="100%">
-        <h1 class="animate__animated animate__fadeInDown">Del Norte Chess Club</h1>
+        <h1 class="animate__animated animate__fadeInDown">Del Norte Chess Club!</h1>
     </header>
 
     <div class="container">
