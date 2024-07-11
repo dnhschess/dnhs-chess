@@ -3,7 +3,100 @@ layout: none
 search_exclude: true
 permalink: /pastevents
 ---
-{%- include chess_head.html -%}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your Title Here</title>
+
+    <style>
+        /* Resetting all margins and paddings to zero */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Setting a general background color */
+        body {
+            background-color: #FFD700; /* Yellowish color */
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            font-size: 20px;
+            color: #333; /* Text color */
+        }
+
+        /* Styling the header */
+        .nav_header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 10%;
+            background-color: #FFD700; /* Yellowish color */
+            margin-bottom: 3ch;
+        }
+
+        /* Styling the logo */
+        .logo {
+            cursor: pointer;
+        }
+
+        /* Styling the navigation links */
+        .nav_links {
+            list-style: none;
+        }
+
+        .nav_links .nav_list {
+            display: inline-block;
+            padding: 5px 10px;
+        }
+
+        .nav_links .nav_list .nav_a {
+            transition: all 0.3s ease 0s;
+            text-decoration: none;
+            color: #333; /* Text color */
+            font-size: 16px; /* Adjust the font size as needed */
+        }
+
+        .nav_links .nav_list .nav_a:hover {
+            color: #555; /* Darker text color on hover */
+        }
+
+        /* Styling the navigation button */
+        .nav_button {
+            padding: 9px 25px;
+            background-color: #FFD700; /* Yellowish color */
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+        }
+
+        .nav_button:hover {
+            background-color: #FFD700; /* Yellowish color */
+        }
+    </style>
+</head>
+<body>
+    <header class="nav_header">
+        <a href="{{ site.baseurl }}/">
+            <img class="logo" src="{{ site.baseurl }}/images/chess_club_logo.png" alt="logo" width="100">
+        </a>
+        <nav>
+            <ul class="nav_links">
+                <li class="nav_list"><a class="nav_a" href="{{ site.baseurl }}/">Home</a></li>
+                <li class="nav_list"><a class="nav_a" href="{{ site.baseurl }}/events">Events</a></li>
+                <li class="nav_list"><a class="nav_a" href="{{ site.baseurl }}/pastevents">Past Events</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Your content here -->
+
+</body>
+</html>
+
 
 ## Big Bughouse Brawl December 9, 2023
 <p> <img src="{{ site.baseurl }}/images/bughousebrawl1.png" width=500px/>
@@ -13,47 +106,47 @@ permalink: /pastevents
 <style>
     p {
         text-align: center;
-        background-color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
         color: #333;
     }
-    ul {
+    
+    li {
         text-align: center;
-        background-color: #F6F6F2;
-        color: #333;
-        font-size: 50px;
-        font-family: Optima, sans-serif;
+        background-color: #FFFFFF; /* Set to white */
+        color: #2f5154;
     }
+
     body {
         font-family: 'Arial', sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
         color: #333;
     }
 
     header {
-        background-color: #F6F6F2;
-        color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
+        color: #333;
         padding: 10px;
         text-align: center;
     }
 
     main {
-        padding: 20px;
-        background-color: #F6F6F2;
+        padding: 10px;
+        background-color: #FFFFFF; /* Set to white */
     }
 
     section {
         text-align: center;
         margin-top: 40px;
-        background-color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
     }
 
     h1.animated-title {
         font-family: Optima, sans-serif;
         color: #388087;
-        font-size: 75px;
-        background-color: #F6F6F2;
+        font-size: 500px;
+        background-color: #FFFFFF; /* Set to white */
         margin-top: 50px;
         animation: bounceIn 0.5s ease-out; /* Added animation for bouncing in */
     }
@@ -62,7 +155,7 @@ permalink: /pastevents
         font-family: Optima, sans-serif;
         color: #2f5154;
         font-size: 35px;
-        background-color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
         text-align: center;
     }
 
@@ -70,9 +163,19 @@ permalink: /pastevents
         font-family: Optima, sans-serif;
         color: #2f5154;
         font-size: 45px;
-        background-color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
         text-align: center;
         animation: moveUp 0.5s forwards; /* Added animation for moving up */
+    }
+
+    a {
+        background-color: #FFFFFF; /* Set the background color to white for URLs */
+        color: #0000EE; /* Default color for links */
+        text-decoration: none; /* Remove underline */
+    }
+
+    a:hover {
+        background-color: #E0E0E0; /* Light gray background on hover */
     }
 
     button {
@@ -85,7 +188,7 @@ permalink: /pastevents
     }
 
     footer {
-        background-color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
         font-family: "Times New Roman", sans-serif;
         color: #388087;
         text-align: center;
@@ -102,7 +205,7 @@ permalink: /pastevents
         font-family: "Times New Roman", sans-serif;
         color: #388087;
         font-size: 50px;
-        background-color: #F6F6F2;
+        background-color: #FFFFFF; /* Set to white */
         margin-top: 10px;
         animation-duration: 1s;
         animation-fill-mode: forwards;

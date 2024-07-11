@@ -1,9 +1,77 @@
+
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your Title Here</title>
+
+    <style>
+        /* Resetting all margins and paddings to zero */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Setting a general background color */
+        body {
+            background-color: #FFD700; /* Yellowish color */
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            font-size: 20px;
+            color: #333; /* Text color */
+        }
+
+        /* Styling the header */
+        .nav_header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 10%;
+            background-color: #FFD700; /* Yellowish color */
+            margin-bottom: 3ch;
+        }
+
+        /* Styling the logo */
+        .logo {
+            cursor: pointer;
+        }
+
+        /* Styling the navigation links */
+        .nav_links {
+            list-style: none;
+        }
+
+        .nav_links .nav_list {
+            display: inline-block;
+            padding: 5px 20px;
+        }
+
+        .nav_links .nav_list .nav_a {
+            transition: all 0.3s ease 0s;
+            text-decoration: none;
+            color: #333; /* Text color */
+            font-size: 16px; /* Adjust the font size as needed */
+        }
+
+        .nav_links .nav_list .nav_a:hover {
+            color: #555; /* Darker text color on hover */
+        }
+
+        /* Styling the navigation button */
+        .nav_button {
+            padding: 9px 25px;
+            background-color: #FFD700; /* Yellowish color */
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+        }
+
+        .nav_button:hover {
+            background-color: #FFD700; /* Yellowish color */
+        }
+    </style>
 </head>
 <body>
     <header class="nav_header">
@@ -18,70 +86,8 @@
             </ul>
         </nav>
     </header>
+
+    <!-- Your content here -->
+
 </body>
 </html>
-
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        background-color: #FFD700; /* Updated to a yellowish color */
-    }
-
-    .nav_list, .nav_a, button {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 500;
-        font-size: 20px;
-        color: #333; /* Updated text color for better contrast */
-        text-decoration: none;
-    }
-
-    .nav_header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 30px 10%;
-        background-color: #FFD700; /* Updated to a yellowish color */
-        margin-bottom: 3ch;
-    }
-
-    .logo {
-        cursor: pointer;
-        background-color: #FFD700; /* Updated to a yellowish color */
-    }
-
-    .nav_links {
-        list-style: none;
-        background-color: #FFD700; /* Updated to a yellowish color */
-    }
-
-    .nav_links .nav_list {
-        display: inline-block;
-        padding: 5px 20px;
-        background-color: #FFD700; /* Updated to a yellowish color */
-    }
-
-    .nav_links .nav_list .nav_a {
-        transition: all 0.3s ease 0s;
-        background-color: #FFD700; /* Updated to a yellowish color */
-    }
-
-    .nav_links .nav_list .nav_a:hover {
-        color: #333; /* Updated text color for better contrast */
-    }
-
-    .nav_button {
-        padding: 9px 25px;
-        background-color: #FFD700; /* Updated to a yellowish color */
-        border: none;
-        cursor: pointer;
-        transition: all 0.3s ease 0s;
-   }
-
-   .nav_button:hover {
-        background-color: #FFD700; /* Updated to a yellowish color */
-   }
-</style>
