@@ -47,9 +47,11 @@ permalink: /events
         }
 
         .nav_links .nav_list {
-            display: inline-block;
-            padding: 5px 10px;
-        }
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 8px; /* Adding border-radius to round the edges */
+}
+
 
         .nav_links .nav_list .nav_a {
             transition: all 0.3s ease 0s;
