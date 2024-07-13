@@ -3,6 +3,7 @@ layout: none
 search_exclude: true
 permalink: /pastevents
 ---
+{%- include chess_head.html -%}
 
 <html>
 <head>
@@ -11,8 +12,8 @@ permalink: /pastevents
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Your Title Here</title>
-
-    <style>
+</head>
+   <style>
         /* Resetting all margins and paddings to zero */
         * {
             margin: 0;
@@ -83,23 +84,9 @@ permalink: /pastevents
             background-color: #E0E0E0; /* Light gray background on hover */
         }
     </style>
-</head>
 <body>
-    <header class="nav_header">
-        <a href="{{ site.baseurl }}/">
-            <img class="logo" src="{{ site.baseurl }}/images/chess_club_logo.png" alt="logo" width="100">
-        </a>
-        <nav>
-            <ul class="nav_links">
-                <li class="nav_list"><a class="nav_a" href="{{ site.baseurl }}/">Home</a></li>
-                <li class="nav_list"><a class="nav_a" href="{{ site.baseurl }}/events">Events</a></li>
-                <li class="nav_list"><a class="nav_a" href="{{ site.baseurl }}/pastevents">Past Events</a></li>
-            </ul>
-        </nav>
-    </header>
-
     <!-- Your content here -->
-
+    <h1>Big Bughouse Brawl</h1>
     <p>
         <img src="{{ site.baseurl }}/images/bughousebrawl1.png" width="500px" />
         <img src="{{ site.baseurl }}/images/bughousebrawl2.png" width="500px" />
