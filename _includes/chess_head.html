@@ -102,10 +102,18 @@
                 <li class="nav_list"><a class="nav_a" href="{{ site.baseurl }}/">Home</a></li>
                 <li class="nav_list"><a class="nav_a" href="{{ site.baseurl }}/events">Events</a></li>
                 <li class="nav_list"><a class="nav_a" href="{{ site.baseurl }}/pastevents">Past Events</a></li>
+                <!-- Leadership List Code: <li class="nav_list"><a class="nav_a" href="{{ site.baseurl }}/Leaderboard">Leaderboard</a></li> -->
             </ul>
         </nav>
-        <button class="nav_button">Login</button>
-        <button class="nav_button">Signup</button>
+        <button class="nav_button" onclick="gotoLink(this)" value="{{ site.baseurl }}/Login">Login</button>
+        <button class="nav_button" onclick="gotoLink(this)" value="{{ site.baseurl }}/">Sign Up</button>
+        <script>
+            function gotoLink(link){
+                console.log(link.value);
+                location.href = link.value;
+            }
+        </script>
+
     </header>
 
     <!-- Your content here -->
