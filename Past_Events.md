@@ -92,6 +92,7 @@ permalink: /pastevents
         <img src="{{ site.baseurl }}/images/bughousebrawl2.png" width="500px" />
         <img src="{{ site.baseurl }}/images/bigbughousebrawl1.png" width="500px" />
     </p>
+    <h1>July 6th Tournament</h1>
 
     <style>
         p {

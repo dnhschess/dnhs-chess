@@ -2,19 +2,25 @@
 toc: true
 comments: false
 layout: none
-title: July 6th Tournament
-description: Participate in our July 6th Tournament. Click the link for more details
+title: Nighthawk Summer Camp
+description: Nighthawk Summer Camp. Click the links for more details
 type: plans
 ---
 {%- include chess_head.html -%}
+
 <html>
-<h1 class="animated-title">July 6th Tournament</h1>
+<h1 class="animated-title">Nighthawk Summer Camp</h1>
 <h2>Details</h2>
 <ul>Details Here</ul>
 <ul>
-<a href="url">Registration Link</a>
+<a href="https://forms.gle/Kb16sXA1VTccUsZ69">Registration Link</a>
 </ul>
+<div style="text-align: center; margin-top: 20px;">
+    <img src="{{ site.baseurl }}/images/Summer_camp.jpg" alt="Summer Camp Image" width="500px" />
+</div>
 </html>
+
+
 
 <style>
     p {
