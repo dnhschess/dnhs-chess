@@ -2,7 +2,103 @@
 layout: blogs
 permalink: /events
 ---
-{%- include chess_head.html -%}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your Title Here</title>
+
+    <style>
+        /* Resetting all margins and paddings to zero */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Setting a general background color */
+        body {
+            background-color: #FFD700; /* Yellowish color */
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            font-size: 10px;
+            color: #333; /* Text color */
+        }
+
+        /* Styling the header */
+        .nav_header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 10%;
+            background-color: #FFD700; /* Yellowish color */
+            margin-bottom: 3ch;
+        }
+
+        /* Styling the logo */
+        .logo {
+            cursor: pointer;
+        }
+
+        /* Styling the navigation links */
+        .nav_links {
+            list-style: none;
+        }
+
+        .nav_links .nav_list {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 8px; /* Adding border-radius to round the edges */
+}
+
+
+        .nav_links .nav_list .nav_a {
+            transition: all 0.3s ease 0s;
+            text-decoration: none;
+            color: #333; /* Text color */
+            font-size: 16px; /* Adjust the font size as needed */
+        }
+
+
+        .nav_links .nav_list .nav_a:hover {
+            color: #555; /* Darker text color on hover */
+        }
+
+        /* Styling the navigation button */
+        .nav_button {
+            padding: 9px 25px;
+            background-color: #FFD700; /* Yellowish color */
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+        }
+
+        .nav_button:hover {
+            background-color: #FFD700; /* Yellowish color */
+        }
+    </style>
+</head>
+<body>
+    <header class="nav_header">
+        <a href="{{ site.baseurl }}/">
+            <img class="logo" src="{{ site.baseurl }}/images/chess_club_logo.png" alt="logo" width="100">
+        </a>
+        <nav>
+            <ul class="nav_links">
+                <li class="nav_list"><a class="nav_a" href="{{ site.baseurl }}/">Home</a></li>
+                <li class="nav_list"><a class="nav_a" href="{{ site.baseurl }}/events">Events</a></li>
+                <li class="nav_list"><a class="nav_a" href="{{ site.baseurl }}/pastevents">Past Events</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Your content here -->
+
+</body>
+</html>
+
+
 <html>
 <head>
     <header>
@@ -42,7 +138,7 @@ permalink: /events
     }
 
     main {
-        padding: 20px;
+        padding: 10px;
         background-color: #FFFFFF; /* Set to white */
     }
 
@@ -55,7 +151,7 @@ permalink: /events
     h1.animated-title {
         font-family: Optima, sans-serif;
         color: #388087;
-        font-size: 75px;
+        font-size: 500px;
         background-color: #FFFFFF; /* Set to white */
         margin-top: 50px;
         animation: bounceIn 0.5s ease-out; /* Added animation for bouncing in */
