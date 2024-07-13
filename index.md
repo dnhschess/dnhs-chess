@@ -15,10 +15,10 @@ search_exclude: true
 
 <body>
     <header>
+        <h1 class="animated-title">DEL NORTE CHESS CLUB</h1>
         <p class="center1">
             <img src="{{site.baseurl}}/images/homepicture.png" width=750px/>
         </p>
-        <h1 class="animated-title">DEL NORTE CHESS CLUB</h1>
     </header>
     <section id="search-section">
         <h1 class="search-title">Participate in various events</h1>
@@ -37,7 +37,7 @@ search_exclude: true
 <style>
     p {
         text-align: center;
-        background-color: #F6F6F2;
+        background-color: #6594FF;
         color: #333;
     }
     ul {
