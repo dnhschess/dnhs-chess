@@ -105,8 +105,8 @@ function login_user() {
         console.log(result);
         //document.cookie = "email=" + encodeURIComponent(email) + "; path=/";
         localStorage.setItem('jwtToken', result.cookie);
-        window.location.replace("http://127.0.0.1:4200/dnhs-chess/");
-        //window.location.href = "https://dnhschess.github.io/dnhs-chess/";
+        //window.location.replace("http://127.0.0.1:4200/dnhs-chess/");
+        window.location.href = "https://dnhschess.github.io/dnhs-chess/";
     })
     .catch(error => console.error('Error during login:', error));
 }
