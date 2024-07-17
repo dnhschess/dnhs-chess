@@ -59,6 +59,9 @@ title: Del Norte Chess Club Login
 <script>
 function login_user() {
     var myHeaders = new Headers();
+    var deployed = "https://dnhs-chess-backend.onrender.com/"
+    var local = "http://localhost:8085/"
+    var fetchURL = deployed;
     myHeaders.append("Content-Type", "application/json");
     // STEP ONE: COLLECT USER INPUT
     var email = document.getElementById("signInEmailInput").value;
@@ -78,7 +81,7 @@ function login_user() {
         redirect: 'follow'
     };
     // STEP TWO: SEND REQUEST TO BACKEND AND GET JWT COOKIE
-    fetch("http://localhost:8085/authenticate", requestOptions)
+    fetch(deployed+"authenticate", requestOptions)
     .then(response => {
         if (!response.ok) {
             const errorMsg = 'Login error: ' + response.status;
