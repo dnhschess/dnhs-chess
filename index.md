@@ -92,8 +92,6 @@ search_exclude: true
     <img src="{{site.baseurl}}/images/homepicture.png" alt="Del Norte Chess Club" width="100%" style="margin-top: -60px;">
     <h1 class="animate__animated animate__fadeInDown">Del Norte Chess Club!</h1>
 </header>
-
-
     <div class="container">
         <section>
             <h2>Participate in various events</h2>
@@ -104,8 +102,13 @@ search_exclude: true
                 <li>Southern California Tournaments</li>
             </ul>
         </section>
+        <section>
+            <h2>Are you in Del Norte and want to join the Del Norte Chess Club?</h2>
+            <ul>
+                <li><a href="https://forms.gle/XBSdynUZsoNXvypM9">Fill out this form</a></li>
+            </ul>
+        </section>
     </div>
-
     <footer>
         <p>Join the Del Norte Discord!</p>
     </footer>
