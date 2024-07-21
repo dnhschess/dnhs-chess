@@ -51,6 +51,9 @@ permalink: /player
 </html>
 
 <script>
+var deployed = "https://dnhs-chess-backend.onrender.com/";
+var local = "http://localhost:8085/"
+var url = deployed;
 document.getElementById('addPlayerButton').addEventListener('click', addPlayer);
 document.getElementById('getAllPlayersButton').addEventListener('click', getAllPlayers);
 document.getElementById('clearAllButton').addEventListener('click', clearAllPlayers);
@@ -71,7 +74,7 @@ async function addPlayer() {
     };
     
     try {
-        const response = await fetch('http://localhost:8085/leaderboard/add', {
+        const response = await fetch(url+'leaderboard/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -95,7 +98,7 @@ async function addPlayer() {
 
 async function getAllPlayers() {
     try {
-        const response = await fetch('http://localhost:8085/leaderboard/allPlayers', {
+        const response = await fetch(url+'leaderboard/allPlayers', {
             method: 'GET',
         });
         
@@ -112,7 +115,7 @@ async function getAllPlayers() {
 
 async function clearAllPlayers() {
     try {
-        const response = await fetch('http://localhost:8085/leaderboard/removeAll', {
+        const response = await fetch(url+'leaderboard/removeAll', {
             method: 'DELETE',
         });
         
@@ -129,7 +132,7 @@ async function clearAllPlayers() {
 
 async function deletePlayer(playerName) {
     try {
-        const response = await fetch(`http://localhost:8085/leaderboard/remove?name=${encodeURIComponent(playerName)}`, {
+        const response = await fetch(url+`/leaderboard/remove?name=${encodeURIComponent(playerName)}`, {
             method: 'DELETE',
         });
         
@@ -171,7 +174,7 @@ function displayPlayers(players) {
 
 async function updateScore(playerName, points) {
     try {
-        const response = await fetch(`http://localhost:8085/leaderboard/updateScore`, {
+        const response = await fetch(url+`/leaderboard/updateScore`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
