@@ -2,6 +2,8 @@
 layout: none
 permalink: /player
 ---
+{% include chess_head.html %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +26,11 @@ permalink: /player
         button {
             cursor: pointer;
         }
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
     </style>
 </head>
 <body>
@@ -38,6 +45,7 @@ permalink: /player
     </div>
     <button id="addPlayerButton">Add Player</button>
     <button id="getAllPlayersButton">Get All Players</button>
+    <button id="clearAllButton">Clear All Players</button>
     <div id="playersList"></div>
 </body>
 </html>
@@ -45,6 +53,7 @@ permalink: /player
 <script>
 document.getElementById('addPlayerButton').addEventListener('click', addPlayer);
 document.getElementById('getAllPlayersButton').addEventListener('click', getAllPlayers);
+document.getElementById('clearAllButton').addEventListener('click', clearAllPlayers);
 
 async function addPlayer() {
     const playerName = document.getElementById('playerName').value;
@@ -58,6 +67,7 @@ async function addPlayer() {
     const player = {
         name: playerName,
         divisionNumber: divisionNumber,
+        score: 0
     };
     
     try {
@@ -73,6 +83,7 @@ async function addPlayer() {
             alert('Player added successfully');
             document.getElementById('playerName').value = '';
             document.getElementById('divisionNumber').value = '';
+            getAllPlayers(); // Refresh the player list
         } else {
             const errorMessage = await response.text();
             alert('Failed to add player: ' + errorMessage);
@@ -99,6 +110,41 @@ async function getAllPlayers() {
     }
 }
 
+async function clearAllPlayers() {
+    try {
+        const response = await fetch('http://localhost:8085/leaderboard/removeAll', {
+            method: 'DELETE',
+        });
+        
+        if (response.ok) {
+            alert('All players cleared successfully');
+            getAllPlayers(); // Refresh the player list
+        } else {
+            alert('Failed to clear players');
+        }
+    } catch (error) {
+        alert('Error: ' + error.message);
+    }
+}
+
+async function deletePlayer(playerName) {
+    try {
+        const response = await fetch(`http://localhost:8085/leaderboard/remove?name=${encodeURIComponent(playerName)}`, {
+            method: 'DELETE',
+        });
+        
+        if (response.ok) {
+            alert('Player deleted successfully');
+            getAllPlayers(); // Refresh the player list
+        } else {
+            const errorMessage = await response.text();
+            alert('Failed to delete player: ' + errorMessage);
+        }
+    } catch (error) {
+        alert('Error: ' + error.message);
+    }
+}
+
 function displayPlayers(players) {
     const playersList = document.getElementById('playersList');
     playersList.innerHTML = '';
@@ -110,9 +156,38 @@ function displayPlayers(players) {
     
     players.forEach(player => {
         const playerDiv = document.createElement('div');
-        playerDiv.textContent = `Name: ${player.name}, Division: ${player.divisionNumber}, Score: ${player.score || 'N/A'}`;
+        playerDiv.innerHTML = `
+            Name: ${player.name}, Division: ${player.divisionNumber}, Score: ${player.score || 'N/A'}
+            <div class="player-controls">
+                <button onclick="updateScore('${player.name}', 2)">Win</button>
+                <button onclick="updateScore('${player.name}', 1)">Draw</button>
+                <button onclick="updateScore('${player.name}', 0)">Lose</button>
+                <button onclick="deletePlayer('${player.name}')">Delete</button>
+            </div>
+        `;
         playersList.appendChild(playerDiv);
     });
 }
 
+async function updateScore(playerName, points) {
+    try {
+        const response = await fetch(`http://localhost:8085/leaderboard/updateScore`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name: playerName, points: points }),
+        });
+        
+        if (response.ok) {
+            alert('Score updated successfully');
+            getAllPlayers(); // Refresh the player list
+        } else {
+            const errorMessage = await response.text();
+            alert('Failed to update score: ' + errorMessage);
+        }
+    } catch (error) {
+        alert('Error: ' + error.message);
+    }
+}
 </script>
