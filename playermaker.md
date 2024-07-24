@@ -52,7 +52,7 @@ permalink: /player
 <script>
 var deployed = "https://dnhs-chess-backend.onrender.com/";
 var local = "http://localhost:8085/"
-var url = local;
+var url = deployed;
 document.getElementById('addPlayerButton').addEventListener('click', addPlayer);
 document.getElementById('getAllPlayersButton').addEventListener('click', getAllPlayers);
 document.getElementById('clearAllButton').addEventListener('click', clearAllPlayers);
