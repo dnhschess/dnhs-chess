@@ -3,7 +3,6 @@ layout: none
 permalink: /player
 ---
 {% include chess_head.html %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +52,7 @@ permalink: /player
 <script>
 var deployed = "https://dnhs-chess-backend.onrender.com/";
 var local = "http://localhost:8085/"
-var url = deployed;
+var url = local;
 document.getElementById('addPlayerButton').addEventListener('click', addPlayer);
 document.getElementById('getAllPlayersButton').addEventListener('click', getAllPlayers);
 document.getElementById('clearAllButton').addEventListener('click', clearAllPlayers);
@@ -103,8 +102,8 @@ async function getAllPlayers() {
         });
         
         if (response.ok) {
-            const players = await response.json();
-            displayPlayers(players);
+            const playersByDivision = await response.json();
+            displayPlayers(playersByDivision);
         } else {
             alert('Failed to fetch players');
         }
@@ -148,40 +147,49 @@ async function deletePlayer(playerName) {
     }
 }
 
-function displayPlayers(players) {
+function displayPlayers(playersByDivision) {
     const playersList = document.getElementById('playersList');
     playersList.innerHTML = '';
-    
-    if (players.length === 0) {
+
+    if (!playersByDivision || playersByDivision.length === 0) {
         playersList.innerHTML = '<p>No players found</p>';
         return;
     }
-    
-    players.forEach(player => {
-        const playerDiv = document.createElement('div');
-        playerDiv.innerHTML = `
-            Name: ${player.name}, Division: ${player.divisionNumber}, Score: ${player.score || 'N/A'}
-            <div class="player-controls">
-                <button onclick="updateScore('${player.name}', 2)">Win</button>
-                <button onclick="updateScore('${player.name}', 1)">Draw</button>
-                <button onclick="updateScore('${player.name}', 0)">Lose</button>
-                <button onclick="deletePlayer('${player.name}')">Delete</button>
-            </div>
-        `;
-        playersList.appendChild(playerDiv);
+
+    playersByDivision.forEach((division, index) => {
+        if (division.length > 0) {
+            const divisionHeader = document.createElement('h2');
+            divisionHeader.textContent = `Division ${index + 1}`;
+            playersList.appendChild(divisionHeader);
+
+            division.forEach(player => {
+                const playerDiv = document.createElement('div');
+                playerDiv.innerHTML = `
+                    Name: ${player.name}, Division: ${player.divisionNumber}, Score: ${player.score || 'N/A'}
+                    <div class="player-controls">
+                        <button onclick="updateScore('${player.name}', 2)">Win</button>
+                        <button onclick="updateScore('${player.name}', 1)">Draw</button>
+                        <button onclick="updateScore('${player.name}', 0)">Lose</button>
+                        <button onclick="deletePlayer('${player.name}')">Delete</button>
+                    </div>
+                `;
+                playersList.appendChild(playerDiv);
+            });
+        }
     });
 }
 
 async function updateScore(playerName, points) {
     try {
-        const response = await fetch(url+`/leaderboard/updateScore`, {
+        const response = await fetch(url + 'leaderboard/updateScore', {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify({ name: playerName, points: points }),
         });
-        
+
         if (response.ok) {
             alert('Score updated successfully');
             getAllPlayers(); // Refresh the player list
@@ -193,4 +201,5 @@ async function updateScore(playerName, points) {
         alert('Error: ' + error.message);
     }
 }
+
 </script>
