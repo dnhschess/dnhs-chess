@@ -30,6 +30,9 @@ permalink: /player
             justify-content: center;
             gap: 10px;
         }
+        .pairs-list {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -47,6 +50,7 @@ permalink: /player
     <button id="clearAllButton">Clear All Players</button>
     <button id="pairPlayerButton">Pair Players</button>
     <div id="playersList"></div>
+    <div class="pairs-list" id="pairsList"></div>
 </body>
 </html>
 
@@ -57,89 +61,40 @@ var url = deployed;
 document.getElementById('addPlayerButton').addEventListener('click', addPlayer);
 document.getElementById('getAllPlayersButton').addEventListener('click', getAllPlayers);
 document.getElementById('clearAllButton').addEventListener('click', clearAllPlayers);
-document.getElementById('pairPlayerButton').addEventListener('click', pairPlayerButton);
+document.getElementById('pairPlayerButton').addEventListener('click', pairPlayers);
 
-async function pairPlayerButton() {
-    //alert('Pairing players...')
-    const PlayerList = [
-        { name: 'Alice', score: 30 },
-        { name: 'Bob', score: 25 },
-        { name: 'Zoe', score: 20 },
-        { name: 'Maggie', score: 21 },
-        { name: 'Jay', score: 19 },
-        { name: 'Charlie', score: 35 }];
-    //alert('Player #2: ' + PlayerList[1].name);
-
-    const PlayerScoreDifference = [];
-    var index_PlayersPaired = []
-
-    for (let i = 0; i < PlayerList.length; i++) {
-        if  ( !(index_PlayersPaired.includes(i)) ) {
-            alert('Player: ' + i + ' Name: ' + PlayerList[i].name +  ' Score: ' + PlayerList[i].score);
-            var max_PlayerScoreDifference = 1000000;
-            var min_index = 0
-            index_PlayersPaired.push(i)
-            PlayerScoreDifference[i] = []
-            for (let j = i+1; j < PlayerList.length; j++) {
-                PlayerScoreDifference[i][j] = Math.abs(PlayerList[i].score - PlayerList[j].score);
-                alert('Score difference between Player ' + i + ' and Player ' + j + ' is ' + PlayerScoreDifference[i][j]);
-                if  ( !(index_PlayersPaired.includes(j)) ) {
-                    if (PlayerScoreDifference[i][j] < max_PlayerScoreDifference) {
-                        max_PlayerScoreDifference = PlayerScoreDifference[i][j]
-                        min_index = j
-                    }
-                }
-            }
-            //const min_index = PlayerScoreDifference[i].indexOf(Math.min(...PlayerScoreDifference[i]))
-            index_PlayersPaired.push(min_index)
-            alert(PlayerList[i].name + ' and ' +  PlayerList[min_index].name + ' are paired');
-        }
-    } 
-
-    /*PlayerList.forEach((element_i, index_i) => {
-        alert('Player: ' + index_i + ' Name: ' + element_i.name +  ' Score: ' + element_i.score);
-        PlayerScoreDifference[index_i] = []
-
-        PlayerList.forEach((element_j, index_j) => {
-            PlayerScoreDifference[index_i][index_j] = element_i.score - element_j.score;
-            alert('Score difference between Player ' + index_i + ' and Player ' + index_j + ' is ' + PlayerScoreDifference[index_i][index_j]);
-        })
-    }); */
-
-    /* try {
-        const response = await fetch(url+'leaderboard/allPlayers', {
+async function pairPlayers() {
+    try {
+        const response = await fetch(url + 'leaderboard/pairPlayers', {
             method: 'GET',
         });
         
         if (response.ok) {
-            const playersByDivision = await response.json();
-            playersByDivision.forEach((division, index) => {
-            if (division.length > 0) {
-                division.forEach(player => {
-                    const playerDiv = document.createElement('div');
-                    alert(${player.name})
-                    // playerDiv.innerHTML = `
-                        // Name: ${player.name}, Division: ${player.divisionNumber}, Score: ${player.score || 'N/A'}
-                        // <div class="player-controls">
-                            // <button onclick="updateScore('${player.name}', 2)">Win</button>
-                            // <button onclick="updateScore('${player.name}', 1)">Draw</button>
-                            // <button onclick="updateScore('${player.name}', 0)">Lose</button>
-                            // <button onclick="deletePlayer('${player.name}')">Delete</button>
-                        // </div>
-                    //`;
-                });
-            } else {
-                alert('Division length is 0. Failed to fetch players');
-            }});
+            const pairs = await response.json();
+            displayPairs(pairs);
         } else {
-            alert('Failed to fetch players');
+            alert('Failed to pair players');
         }
     } catch (error) {
         alert('Error: ' + error.message);
     }
-    */
+}
 
-    return;
+function displayPairs(pairs) {
+    const pairsList = document.getElementById('pairsList');
+    pairsList.innerHTML = '<h1>Pairs</h1>';
+
+    if (!pairs || pairs.length === 0) {
+        pairsList.innerHTML = '<p>No pairs found</p>';
+        return;
+    }
+
+    pairs.forEach(pair => {
+        const pairDiv = document.createElement('div');
+        pairDiv.innerHTML = `Pair: ${pair.player1.name} vs ${pair.player2.name}`;
+        //pairDiv.innerHTML = `Pair: ${pair.player1.name} (Score: ${pair.player1.score}) vs ${pair.player2.name} (Score: ${pair.player2.score})`;
+        pairsList.appendChild(pairDiv);
+    });
 }
 
 async function addPlayer() {
@@ -158,7 +113,7 @@ async function addPlayer() {
     };
     
     try {
-        const response = await fetch(url+'leaderboard/add', {
+        const response = await fetch(url + 'leaderboard/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -182,7 +137,7 @@ async function addPlayer() {
 
 async function getAllPlayers() {
     try {
-        const response = await fetch(url+'leaderboard/allPlayers', {
+        const response = await fetch(url + 'leaderboard/allPlayers', {
             method: 'GET',
         });
         
@@ -199,7 +154,7 @@ async function getAllPlayers() {
 
 async function clearAllPlayers() {
     try {
-        const response = await fetch(url+'leaderboard/removeAll', {
+        const response = await fetch(url + 'leaderboard/removeAll', {
             method: 'DELETE',
         });
         
@@ -216,7 +171,7 @@ async function clearAllPlayers() {
 
 async function deletePlayer(playerName) {
     try {
-        const response = await fetch(url+`/leaderboard/remove?name=${encodeURIComponent(playerName)}`, {
+        const response = await fetch(url + `/leaderboard/remove?name=${encodeURIComponent(playerName)}`, {
             method: 'DELETE',
         });
         
@@ -286,5 +241,4 @@ async function updateScore(playerName, points) {
         alert('Error: ' + error.message);
     }
 }
-
 </script>
