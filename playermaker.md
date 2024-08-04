@@ -28,10 +28,23 @@ permalink: /player
         .player-controls {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 5px;
+            margin-top: 10px;
         }
         .pairs-list {
             margin-top: 20px;
+        }
+        .player {
+            margin-bottom: 20px;
+        }
+        .player-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .player-info div {
+            margin: 0 5px;
         }
     </style>
 </head>
@@ -204,13 +217,16 @@ function displayPlayers(playersByDivision) {
 
             division.forEach(player => {
                 const playerDiv = document.createElement('div');
+                playerDiv.className = 'player';
                 playerDiv.innerHTML = `
-                    Name: ${player.name}, Division: ${player.divisionNumber}, Score: ${player.score || 'N/A'}
-                    <div class="player-controls">
-                        <button onclick="updateScore('${player.name}', 2)">Win</button>
-                        <button onclick="updateScore('${player.name}', 1)">Draw</button>
-                        <button onclick="updateScore('${player.name}', 0)">Lose</button>
-                        <button onclick="deletePlayer('${player.name}')">Delete</button>
+                    <div class="player-info">
+                        <div>Name: ${player.name}, Division: ${player.divisionNumber}, Score: ${player.score || 'N/A'}</div>
+                        <div class="player-controls">
+                            <button onclick="updateScore('${player.name}', 2)">Win</button>
+                            <button onclick="updateScore('${player.name}', 1)">Draw</button>
+                            <button onclick="updateScore('${player.name}', 0)">Lose</button>
+                            <button onclick="deletePlayer('${player.name}')">Delete</button>
+                        </div>
                     </div>
                 `;
                 playersList.appendChild(playerDiv);
